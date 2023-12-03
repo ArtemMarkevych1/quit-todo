@@ -3,6 +3,7 @@ import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid'
 import { useDispatch } from 'react-redux'
 import { addTodo } from '../redux/todosSlice'
+import { Input as AntInput, Button } from 'antd'
 
 export default function Input() {
     const [inputValue, setInputValue] = useState('')
@@ -20,15 +21,15 @@ export default function Input() {
 
     return (
         <form onSubmit={handleFormSubmit}>
-            <input
+            <AntInput
                 type='text'
                 value={inputValue}
                 onChange={handleChange}
             />
 
-            <button type="submit">
+            <Button type="primary" htmlType="submit">
                 Add todo
-            </button>
+            </Button>
         </form>
     )
 }

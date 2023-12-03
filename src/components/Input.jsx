@@ -1,9 +1,12 @@
-/* eslint-disable react/prop-types */
+// src/components/Input.jsx
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid'
+import { useDispatch } from 'react-redux'
+import { addTodo } from '../redux/todosSlice'
 
-export default function Input({ handleSubmit }) {
+export default function Input() {
     const [inputValue, setInputValue] = useState('')
+    const dispatch = useDispatch()
 
     const handleChange = (e) => {
         setInputValue(e.target.value)
@@ -11,7 +14,7 @@ export default function Input({ handleSubmit }) {
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
-        handleSubmit({ id: uuidv4(), text: inputValue })
+        dispatch(addTodo({ id: uuidv4(), text: inputValue }))
         setInputValue("")
     }
 

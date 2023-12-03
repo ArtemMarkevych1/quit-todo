@@ -1,18 +1,13 @@
-import { useState } from 'react'
-import './App.css'
+import { useSelector } from 'react-redux'
 import List from './components/List'
 import Input from './components/Input'
 
 function App() {
-  const [todos, setTodos] = useState([])
-
-  const handleSubmit = (todo) => {
-    setTodos([todo, ...todos])
-  }
+  const todos = useSelector((state) => state.todos)
 
   return (
     <>
-      <Input handleSubmit={handleSubmit} />
+      <Input />
       <List todos={todos} />
     </>
   )

@@ -8,7 +8,7 @@ const todosSlice = createSlice({
       state.unshift(action.payload);
     },
     deleteTodo: (state, action) => {
-      return state.filter(todo => todo.id !== action.payload);
+      return state.filter((todo) => todo.id !== action.payload);
     },
   },
 });
